@@ -21,6 +21,9 @@ function main() {
             console.log("Connected to the database!");
             const res = yield pgClient.query("SELECT * FROM users WHERE id % 2 = 1;");
             console.log("Query result:", res.rows);
+            const names = yield pgClient.query("SELECT username FROM users;");
+            const nameRes = names.rows.map(name => name.username);
+            console.log("Names:", nameRes);
         }
         catch (err) {
             console.error("Error occurred:", err);
