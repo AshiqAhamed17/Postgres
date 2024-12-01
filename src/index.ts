@@ -1,4 +1,5 @@
 import { Client } from "pg";
+const express = require("express");
 
 const pgClient = new Client({
   connectionString:
